@@ -1,0 +1,39 @@
+{
+	"name": "demo",
+	"version": "0.1.0",
+	"private": true,
+	"main": "build/vue-build/main.js",
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"electron-dev": "node electron/config/electron-run-dev.js",
+		"electron-build": "vue-cli-service build && node electron/config/electron-build-pro.js && electron-builder --dir"
+	},
+	"build": {
+		"productName": "vue-cli-electron",
+		"appId": "com.test",
+		"asar": false,
+		"directories": {
+			"output": "build/electron-build"
+		},
+		"files": [
+			"build/vue-build/**/*"
+		],
+		"win": {
+			"icon": "build/vue-build/img/ico.ico"
+		}
+	},
+	"dependencies": {
+		"core-js": "^3.6.5",
+		"vue": "^2.6.11",
+		"vue-router": "^3.2.0"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "~4.5.0",
+		"@vue/cli-plugin-router": "~4.5.0",
+		"@vue/cli-service": "~4.5.0",
+		"electron": "^9.2.1",
+		"electron-builder": "^22.8.0",
+		"vue-template-compiler": "^2.6.11"
+	}
+}
